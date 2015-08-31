@@ -1,0 +1,52 @@
+[user]
+  name = Ken Sodemann
+  email = ken.sodemann@penta.com
+[core]
+  autocrlf = input
+[push]
+  default = simple
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "branch"]
+  current = red reverse
+  local = blue
+  remote = green
+
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red bold
+  new = green
+  plain = white
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[alias]
+  bra = branch -ra
+  ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  fl = log -u
+  tree = log --graph --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  co = checkout
+  cod = checkout develop
+  rb = !git fetch origin develop && git rebase origin/develop
+  squash = !git fetch origin develop && git rebase -i origin/develop
+  ours = "!f() { git co --ours $@ && git add $@; }; f"
+  theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+  sf = !git pull --rebase --prune && git flow feature start
+  pub = flow feature publish
+  rmb = branch -d
+  rmbr = push origin --delete
+  lsc = diff-tree --no-commit-id --name-only -r
+  cdiff = diff-tree --patch -r
+
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
