@@ -1,10 +1,13 @@
 [user]
   name = Ken Sodemann
   email = ken.sodemann@penta.com
+
 [core]
   autocrlf = input
+
 [push]
   default = simple
+
 [color]
   branch = auto
   diff = auto
