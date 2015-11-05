@@ -1,0 +1,20 @@
+"*":
+  "exception-reporting":
+    userId: "044b661c-8936-d54b-4df9-d1ac355b08c9"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+  editor:
+    invisibles: {}
+    fontSize: 12
+    showIndentGuide: true
+  "atom-beautify":
+    _analyticsUserId: "32847e78-b6c1-4861-b81e-b6093e52280b"
+  "grunt-runner":
+    gruntPaths: [
+      "/usr/local/bin"
+    ]
