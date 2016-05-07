@@ -1,0 +1,275 @@
+{
+	"Tell JSHint this is a Test File": {
+		"prefix": "tst",
+		"body": [
+			"/* jshint expr: true, undef: false */"
+		],
+		"description": "Tell JSHint this is a Test File"
+	},
+	"Describe Feature to Test": {
+		"prefix": "desc",
+		"body": [
+			"describe('$1', function() {",
+			"\t$2",
+			"});"
+		],
+		"description": "Describe Feature to Test"
+	},
+	"Test Case": {
+		"prefix": "it",
+		"body": [
+			"it('$1', function() {",
+			"\t$2",
+			"});"
+		],
+		"description": "Test Case"
+	},
+	"Before Each": {
+		"prefix": "be",
+		"body": [
+			"beforeEach(function() {",
+			"\t${1}",
+			"});"
+		],
+		"description": "Before Each"
+	},
+	"After Each": {
+		"prefix": "ae",
+		"body": [
+			"afterEach(function() {",
+			"\t$httpBackend.verifyNoOutstandingExpectation();",
+			"\t$httpBackend.verifyNoOutstandingRequest();",
+			"});"
+		],
+		"description": "After Each"
+	},
+	//---------------------------------
+	// Angular 1.x Snippets
+	//---------------------------------
+	"Controller": {
+		"prefix": "ngctrl",
+		"body": [
+			"(function() {",
+			"\t'use strict';",
+			"",
+			"\tangular.module('${BaseModule}.${name}', []).controller('${name}', ${name});",
+			"",
+			"\tfunction ${name}() {",
+			"\t\tvar controller = this;",
+			"",
+			"\t\t${1}",
+			"\t}",
+			"}());"
+		],
+		"description": "Controller"
+	},
+	"Controller Test": {
+		"prefix": "ngtstctrl",
+		"body": [
+			"(function() {",
+			"\t'use strict';",
+			"",
+			"\tdescribe('${BaseModule}.${name}', function(){",
+			"\t\tvar $controllerConstructor;",
+			"",
+			"\t\tbeforeEach(module('${BaseModule}.${name}'));",
+			"",
+			"\t\tbeforeEach(inject(function($controller) {",
+			"\t\t\t$controllerConstructor = $controller;",
+			"\t\t}));",
+			"",
+			"\t\tfunction createController() {",
+			"\t\t\treturn controllerConstructor('${name}', {});",
+			"\t\t}",
+			"",
+			"\t\tit('exists', function() {",
+			"\t\t\tvar controller = createController();",
+			"\t\t\texpect(controller).to.exist;",
+			"\t\t});",
+			"\t});",
+			"}());"
+		],
+		"description": "Controller Test"
+	},
+	"Service": {
+		"prefix": "ngsrv",
+		"body": [
+			"(function() {",
+			"\t'use strict';",
+			"",
+			"\tangular.module('${BaseModule}.${name}', []).factory('${name}', ${name});",
+			"",
+			"\tfunction ${name}() {",
+			"\t\treturn {};",
+			"}",
+			"}());"
+		],
+		"description": "Service"
+	},
+	"Service Test": {
+		"prefix": "ngtstsrv",
+		"body": [
+			"/* jshint expr: true, undef: false */",
+			"(function() {",
+			"\t'use strict';",
+			"",
+			"\tdescribe('${BaseModule}.${name}', function() {",
+			"\t\tvar ${name};",
+			"",
+			"\t\tbeforeEach(module('${BaseModule}.${name}'));",
+			"",
+			"\t\tbeforeEach(inject(function(_${name}_) {",
+			"\t\t\t${name} = _${name}_;",
+			"\t\t}));",
+			"",
+			"\t\tit('exists', function() {",
+			"\t\t\texpect(${name}).to.exist;",
+			"\t\t});",
+			"\t});",
+			"}());"
+		],
+		"description": "Service Test"
+	},
+	"Directive": {
+		"prefix": "ngdir",
+		"body": [
+			"(function() {",
+			"\t'use strict';",
+			"",
+			"\tangular.module('${BaseModule}.${name}', [])",
+			"\t\t.directive('${name}', ${name})",
+			"\t\t.controller('${name}Controller', ${name}Controller);",
+			"",
+			"\tfunction ${name}() {",
+			"\t\treturn {",
+			"\t\t\trestrict: 'E',",
+			"\t\t\ttemplateUrl: 'app/common/directives/${name}/${name}.html',",
+			"\t\t\tscope: {},",
+			"\t\t\tbindToController: {},",
+			"\t\t\tcontroller: '${name}Controller',",
+			"\t\t\tcontrollerAs: 'controller'",
+			"\t\t};",
+			"\t}",
+			"",
+			"\tfunction ${name}Controller() {",
+			"\t}",
+			"}());"
+		],
+		"description": "Directive"
+	},
+	"Directive Test": {
+		"prefix": "ngtstdir",
+		"body": [
+			"/* jshint expr: true, undef: false */",
+			"(function() {",
+			"\t'use strict';",
+			"",
+			"\tdescribe('${BaseModule}.${name}', function() {",
+			"\t\tvar $compile;",
+			"\t\tvar $scope;",
+			"",
+			"\t\tbeforeEach(module('app/common/directives/${name}/${name}.html'));",
+			"\t\tbeforeEach(module('${BaseModule}.${name}'));",
+			"",
+			"\t\tbeforeEach(inject(function($rootScope, _$compile_) {",
+			"\t\t\t$scope = $rootScope;",
+			"\t\t\t$compile = _$compile_;",
+			"\t\t}));",
+			"",
+			"\t\tit('compiles', function() {",
+			"\t\t\tvar el = compile('<pti-directive></pti-directive>');",
+			"\t\t\texpect(el[0].innerHTML).to.contain('<div></div>');",
+			"\t\t});",
+			"",
+			"\t\tfunction compile(html) {",
+			"\t\t\tvar el = angular.element(html);",
+			"\t\t\t$compile(el)($scope);",
+			"\t\t\t$scope.$digest();",
+			"",
+			"\t\t\treturn el;",
+			"\t\t}",
+			"\t});",
+			"}());"
+		],
+		"description": "Directive Test"
+	},
+	"Resource": {
+		"prefix": "ngres",
+		"body": [
+			"(function() {",
+			"\t'use strict';",
+			"",
+			"\tangular.module('${BaseModule}.${name}', [",
+			"\t\t'ngResource'",
+			"\t]).factory('${name}', ${name});",
+			"",
+			"\tfunction ${name}($resource) {",
+			"\t\treturn $resource('/api/${name}/:id', {",
+			"\t\t\tid: '@ID'",
+			"\t\t});",
+			"}",
+			"}());"
+		],
+		"description": "Resource"
+	},
+	"Resource Test": {
+		"prefix": "ngtstres",
+		"body": [
+			"/* jshint expr: true, undef: false */",
+			"(function() {",
+			"'use strict';",
+			"",
+			"\tdescribe('${BaseModule}.${name}', function() {",
+			"\t\tvar $httpBackend;",
+			"\t\tvar ${name};",
+			"\t\tvar testData;",
+			"",
+			"\tbeforeEach(module('${BaseModule}.${name}'));",
+			"",
+			"\tbeforeEach(function() {",
+			"\t\tinitializeTestData();",
+			"\t});",
+			"",
+			"\tbeforeEach(inject(function(_$httpBackend_, _${name}_) {",
+			"\t\t$httpBackend = _$httpBackend_;",
+			"\t\t${name} = _${name}_;",
+			"\t}));",
+			"",
+			"\tafterEach(function() {",
+			"\t\t$httpBackend.verifyNoOutstandingExpectation();",
+			"\t\t$httpBackend.verifyNoOutstandingRequest();",
+			"\t});",
+			"",
+			"\tit('Should exist', function() {",
+			"\t\texpect(${name}).to.exist;",
+			"\t});",
+			"",
+			"\tdescribe('query', function() {",
+			"\t\tit('gets the data', function() {",
+			"\t\t\t$httpBackend.expectGET('/api/${name}').respond(testData);",
+			"\t\t\tvar res = ${name}.query({});",
+			"\t\t\t$httpBackend.flush();",
+			"\t\t\texpect(angular.equals(res, testData.Data)).to.be.true;",
+			"\t\t});",
+			"\t});",
+			"",
+			"\tfunction initializeTestData() {",
+			"\t\ttestData = {",
+			"\t\t\tData: [{",
+			"\t\t\t\t_id: 1,",
+			"\t\t\t\tname: 'Fred'",
+			"\t\t\t}, {",
+			"\t\t\t\t_id: 2,",
+			"\t\t\t\tname: 'Bob'",
+			"\t\t\t}, {",
+			"\t\t\t\t_id: 3,",
+			"\t\t\t\tname: 'Jack'",
+			"\t\t\t}]",
+			"\t\t};",
+			"\t\t}",
+			"\t});",
+			"}())"
+		],
+		"description": "Resource Test"
+	}
+}
