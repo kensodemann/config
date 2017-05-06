@@ -1,0 +1,10 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "typescript.tsdk": "/Users/KenSodemann/.config/yarn/global/node_modules/typescript/lib",
+    "git.confirmSync": false,
+    "workbench.colorTheme": "Xcode_default"
+  }

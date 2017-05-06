@@ -1,0 +1,43 @@
+{
+  /*
+	 // Place your snippets for TypeScript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
+	 // Example:
+	 "Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+  "Add Describe Block": {
+    "prefix": "tdesc",
+    "body": [
+      "describe('$1', () => {",
+      "  $2",
+      "});"
+    ],
+    "description": "Add a describe block to a unit test"
+  },
+  "Add It Block": {
+    "prefix": "tit",
+    "body": [
+      "it('$1', () => {",
+      "  $2",
+      "});"
+    ],
+    "description": "Add an it block to a unit test"
+  },
+  "Add beforeEach Block": {
+    "prefix": "tbe",
+    "body": [
+      "beforeEach(() => {",
+      "  $2",
+      "});"
+    ],
+    "description": "Add an beforeEach block to a unit test"
+  }
+}

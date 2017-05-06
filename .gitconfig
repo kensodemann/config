@@ -1,10 +1,9 @@
 [user]
-  name = Ken Sodemann
-  email = ken.sodemann@penta.com
-
+	name = Ken Sodemann
+	email = ken.sodemann@penta.com
 [core]
   autocrlf = input
-
+	excludesfile = /Users/KenSodemann/.gitignore_global
 [push]
   default = simple
 
@@ -32,18 +31,20 @@
 
 [alias]
   bra = branch -ra
+  sta = status -sb
   ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   fl = log -u
   tree = log --graph --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
   co = checkout
-  cod = checkout develop
-  rb = !git fetch origin develop && git rebase origin/develop
-  squash = !git fetch origin develop && git rebase -i origin/develop
+  com = checkout master
+  ci = commit
+  amend = commit --amend -C HEAD
+  aa = commit -a --amend -C HEAD
+  rb = !git fetch origin master && git rebase origin/master
+  squash = !git fetch origin master && git rebase -i origin/master
   ours = "!f() { git co --ours $@ && git add $@; }; f"
   theirs = "!f() { git co --theirs $@ && git add $@; }; f"
-  sf = !git pull --rebase --prune && git flow feature start
-  pub = flow feature publish
   rmb = branch -d
   rmbr = push origin --delete
   lsc = diff-tree --no-commit-id --name-only -r
@@ -53,3 +54,6 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
+
+[commit]
+	template = /Users/KenSodemann/.stCommitMsg
