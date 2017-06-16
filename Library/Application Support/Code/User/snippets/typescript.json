@@ -14,38 +14,63 @@
 		"description": "Log output to console"
 	}
 */
-	"Add Describe Block": {
-		"prefix": "t-desc",
-		"body": [
-			"describe('$1', () => {",
-			"  $2",
-			"});"
-		],
-		"description": "Add a describe block to a unit test"
-	},
-	"Add It Block": {
-		"prefix": "t-it",
-		"body": [
-			"it('$1', () => {",
-			"  $2",
-			"});"
-		],
-		"description": "Add an it block to a unit test"
-	},
-	"Add beforeEach Block": {
-		"prefix": "t-be",
-		"body": [
-			"beforeEach(() => {",
-			"  $1",
-			"});"
-		],
-		"description": "Add an beforeEach block to a unit test"
-	},
-	"Import a TypeScript module": {
-		"prefix": "imp",
-		"body": [
-			"import { $2 } from '$1';"
-		],
-		"description": "Create an import statement in the order that makes sense"
-	}
+  "Add Describe Block": {
+    "prefix": "t-describe",
+    "body": [
+      "describe('$1', () => {",
+      "  $2",
+      "});"
+    ],
+    "description": "Add a describe block to a unit test"
+  },
+  "Add It Block": {
+    "prefix": "t-it",
+    "body": [
+      "it('$1', () => {",
+      "  $2",
+      "});"
+    ],
+    "description": "Add an it block to a unit test"
+  },
+  "Add beforeEach Block": {
+    "prefix": "t-before-each",
+    "body": [
+      "beforeEach(() => {",
+      "  $2",
+      "});"
+    ],
+    "description": "Add an beforeEach block to a unit test"
+  },
+  "HTTP Testing Connection": {
+    "prefix": "t-http-connection",
+    "body": [
+      "let connection: MockConnection;",
+      "mockBackend.connections.subscribe(c => connection = c);"
+    ],
+    "description": "Create Mock Connection"
+  },
+  "HTTP Testing Imports": {
+    "prefix": "t-http-import",
+    "body": [
+      "import { Http, Response, ResponseOptions, RequestMethod, BaseRequestOptions } from '@angular/http';",
+      "import { MockBackend, MockConnection } from '@angular/http/testing';"
+    ],
+    "description": "Insert common HTTP testing imports"
+  },
+  "HTTP Testing Setup": {
+    "prefix": "t-http-setup",
+    "body": [
+      "const opt = new BaseRequestOptions();",
+      "mockBackend = new MockBackend();",
+      "const http = new Http(mockBackend, opt);"
+    ],
+    "description": "Insert common HTTP testing setup"
+  },
+  "Import a TypeScript module": {
+    "prefix": "import",
+    "body": [
+      "import { $2 } from '$1';"
+    ],
+    "description": "Create an import statement in the order that makes sense"
+  }
 }
