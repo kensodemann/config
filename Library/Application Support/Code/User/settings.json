@@ -1,10 +1,59 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "editor.formatOnType": true,
-    "editor.tabSize": 2,
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "typescript.tsdk": "/Users/KenSodemann/.config/yarn/global/node_modules/typescript/lib",
-    "git.confirmSync": false,
-    "workbench.colorTheme": "Xcode_default"
-  }
+  "editor.formatOnType": true,
+  "editor.snippetSuggestions": "top",
+  "editor.tabSize": 2,
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "typescript.tsdk": "/Users/KenSodemann/.config/yarn/global/node_modules/typescript/lib",
+  "git.confirmSync": false,
+  "workbench.colorTheme": "Quiet Light",
+  "workbench.iconTheme": "material-icon-theme",
+  // 
+  // The following colors work well for light themes. If using a dark theme
+  // just comment this out and use the default.
+  // Define paired characters and their shared color group
+  "bracketPairColorizer.consecutivePairColors": [
+    "()",
+    "[]",
+    "{}",
+    [
+      "Green",
+      "Purple",
+      "Blue"
+    ],
+    "Red"
+  ],
+  // Define paired characters and their color groups
+  "bracketPairColorizer.independentPairColors": [
+    [
+      "()",
+      [
+        "Green",
+        "Purple",
+        "Blue"
+      ],
+      "Red"
+    ],
+    [
+      "[]",
+      [
+        "Green",
+        "Purple",
+        "Blue"
+      ],
+      "Red"
+    ],
+    [
+      "{}",
+      [
+        "Green",
+        "Purple",
+        "Blue"
+      ],
+      "Red"
+    ]
+  ],
+  "git.enableSmartCommit": true
+}
