@@ -67,8 +67,13 @@ set ignorecase smartcase
 set laststatus=2
 
 syntax on
-colorscheme desert
+colorscheme slate
 
 if has("gui_running")
   set vb t_vb=
+  set lines=50 columns=125
+else
+  if exists("+columns")
+    set columns=125
+  endif
 endif
