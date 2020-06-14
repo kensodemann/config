@@ -1,11 +1,13 @@
 [user]
 	name = Ken Sodemann
-	email = ken.sodemann@penta.com
+	email = ken@ionic.io
 [core]
-  autocrlf = input
-	excludesfile = /Users/KenSodemann/.gitignore_global
+	autocrlf = input
+	excludesfile = /Users/kensodemann/.gitignore_global
 [push]
   default = simple
+[pull]
+  rebase = true
 
 [color]
   branch = auto
@@ -37,7 +39,8 @@
   fl = log -u
   tree = log --graph --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
   co = checkout
-  com = checkout master
+  stg = stage --patch
+  stag = stage --patch
   ci = commit
   amend = commit --amend -C HEAD
   aa = commit -a --amend -C HEAD
@@ -51,9 +54,15 @@
   cdiff = diff-tree --patch -r
 
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
   required = true
-
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [commit]
-	template = /Users/KenSodemann/.stCommitMsg
+	template = /Users/kensodemann/.stCommitMsg
