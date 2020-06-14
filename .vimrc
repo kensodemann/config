@@ -67,7 +67,7 @@ set ignorecase smartcase
 set laststatus=2
 
 syntax on
-colorscheme slate
+colorscheme desert
 
 if has("gui_running")
   set vb t_vb=
