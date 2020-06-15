@@ -4,6 +4,8 @@
 [core]
 	autocrlf = input
 	excludesfile = /Users/kensodemann/.gitignore_global
+[pager]
+  branch = false
 [push]
   default = simple
 [pull]
