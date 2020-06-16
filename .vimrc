@@ -60,6 +60,8 @@ else
 endif
 
 " Basic Editor setup
+source ~/.vim/config/autoclose.vim
+
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set wrap linebreak nolist
 set number numberwidth=4 ruler
