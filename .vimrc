@@ -11,13 +11,15 @@ Plug 'jparise/vim-graphql'                              " GraphQL syntax
 
 Plug  'prettier/vim-prettier', { 'do': 'npm install' }  " Prettier
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}         " Compleition
+Plug 'neoclide/coc.nvim', {'branch': 'release'}         " Completion
+Plug 'mattn/emmet-vim'                                  " HTML Completion
 
 call plug#end()
 
 filetype plugin indent on
 
 " Completion Setup
+let g:user_emmet_leader_key=','
 let g:coc_global_extensions = ['coc-solargraph', 'coc-tsserver', 'coc-json']
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
@@ -62,6 +64,8 @@ endif
 " Basic Editor setup
 source ~/.vim/config/autoclose.vim
 
+let mapleader=","
+
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set wrap linebreak nolist
 set number numberwidth=4 ruler
@@ -75,7 +79,7 @@ if has("gui_running")
   set vb t_vb=
   set lines=50 columns=125
 else
-  if exists("+columns")
+  if exists("+columns") && &columns < 125
     set columns=125
   endif
 endif
