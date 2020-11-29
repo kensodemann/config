@@ -1,4 +1,69 @@
-snippet ionvtstpage "Test for a page in @ionic/vue" b
+snippet beforeEach "Unit Test beforeEach() setup" b
+beforeEach(() => {
+  $1
+});
+endsnippet
+
+snippet beforeAll "Unit Test beforeAll() setup" b
+beforeAll(() => {
+  $1
+});
+endsnippet
+
+snippet afterEach "Unit Test afterEach() teardown" b
+afterEach(() => {
+  $1
+});
+endsnippet
+
+snippet afterAll "Unit Test afterAll() teardown" b
+afterAll(() => {
+  $1
+});
+endsnippet
+
+snippet describe "Unit Test describe() block" b
+describe('$1', () => {           
+  $2                             
+}); 
+endsnippet
+
+snippet it "Unit Test it() test case" b
+it('$1', () => {
+  $2
+});
+endsnippet
+
+snippet test "Unit Test test() test case" b
+it('$1', () => {
+  $2
+});
+endsnippet
+
+snippet httpservice "HTTP Client Service (Vue and React)" b
+import { client } from './api';
+import { $1 } from '@/models';
+
+interface RawData {
+  id: number;
+  name: string;
+  description: string;
+}
+
+function unpackData(data: Array<RawData>): Array<$1> {
+  return data.map(t => ({ ...t}));
+}
+
+export default {
+  async getAll(): Promise<Array<$1>> {
+    return client
+      .get('/$2')
+      .then(res => res.data && unpackData(res.data));
+  },
+};
+endsnippet
+
+snippet tstionvpage "Test for a page in @ionic/vue" b
 import { mount, VueWrapper } from '@vue/test-utils';
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { createStore } from 'vuex';
@@ -32,4 +97,93 @@ describe('$1.vue', () => {
     expect(content.exists()).toBe(true);
   });
 });
+endsnippet
+
+snippet tsthttpservice "Test for HTTP service (Vue and React)" b
+import { client } from '@/services/api';
+import ${1:Service} from '@/services/$1';
+
+import { $2 } from '@/models';
+
+describe('$1', () => {
+  let expectedData: Array<$2>;
+  let httpResultData: Array<{ id: number; name: string; description: string }>;
+
+  function initializeTestData() {
+    expectedData = [];
+    httpResultData = [];
+  }
+
+  beforeEach(() => {
+    initializeTestData();
+  });
+
+  describe('getAll', () => {
+    beforeEach(() => {
+      client.get = jest.fn().mockResolvedValue({});
+    });
+
+    it('gets the data', async () => {
+      await $1.getAll();
+      expect(client.get).toHaveBeenCalledTimes(1);
+      expect(client.get).toHaveBeenCalledWith('/$3');
+    });
+
+    it('transforms the data', async () => {
+      (client.get as any).mockResolvedValue({ data: httpResultData });
+      const data = await $1.getAll();
+      expect(data).toEqual(expectedData);
+    });
+  });
+});
+endsnippet
+
+snippet vuexstate "Vuex State Starter" b
+import { ${1:DataType} } from '@/models';
+
+export interface State {
+  ${2:data}: $1;
+}
+
+export const state: State = {
+  $2: null,
+};
+
+export const getters = { };
+endsnippet
+
+snippet vuexmutations "Vuex Mutations Starter" b
+import { State } from './state';
+import { ${1:DataType} } from '@/models';
+
+export enum MutationTypes {
+  ${2:CLEAR_DATA} = '$2',
+  ${3:SET_DATA} = '$3',
+}
+
+export const mutations = {
+  [MutationTypes.$2]: (state: State) => (state.${4:data} = null),
+  [MutationTypes.$3]: (state: State, payload: $1) => (state.$4 = payload),
+};
+endsnippet
+
+snippet vuexaction "Vuex Action Starter" b
+import { ActionContext } from 'vuex';
+
+import ${1:ServiceName} from '@/services/$1';
+
+import { State } from './state';
+import { MutationTypes } from './mutations';
+
+export enum ActionTypes {
+  ${2:action} = '$2',
+}
+
+export const actions = {
+  async [ActionTypes.$2]({
+    commit,
+  }: ActionContext<State, State>): Promise<void> {
+    $3
+  },
+};
 endsnippet
