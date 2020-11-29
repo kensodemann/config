@@ -1,0 +1,23 @@
+snippet ionvpage "A page in @ionioc/vue" b
+<template>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content></ion-content>
+</template>
+
+<script lang="ts">
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
+
+export default {
+  name: '${0: PageName}',
+  components: { IonContent, IonHeader, IonTitle, IonToolbar },
+};
+</script>
+
+<style scoped></style>
+endsnippet
+

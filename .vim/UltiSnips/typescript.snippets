@@ -1,0 +1,35 @@
+snippet ionvtstpage "Test for a page in @ionic/vue" b
+import { mount, VueWrapper } from '@vue/test-utils';
+import { createRouter, createWebHistory } from '@ionic/vue-router';
+import { createStore } from 'vuex';
+import ${1:PageName} from '@/views/$1.vue';
+
+describe('$1.vue', () => {
+  let router: any;
+  let store: any;
+  let wrapper: VueWrapper<any>;
+
+  beforeEach(async () => {
+    store = createStore({});
+    store.dispatch = jest.fn();
+    router = createRouter({
+      history: createWebHistory(process.env.BASE_URL),
+      routes: [{ path: '/', component: $1 }],
+    });
+    router.push('/');
+    await router.isReady();
+    wrapper = mount($1, {
+      global: {
+        plugins: [router, store],
+      },
+    });
+  });
+
+  it('renders', () => {
+    const header = wrapper.findComponent('ion-header');
+    const content = wrapper.findComponent('ion-content');
+    expect(header.exists()).toBe(true);
+    expect(content.exists()).toBe(true);
+  });
+});
+endsnippet
