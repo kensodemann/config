@@ -1,43 +1,63 @@
-snippet beforeEach "Unit Test beforeEach() setup" b
+snippet tstbeforeEach "Unit Test beforeEach() setup" b
 beforeEach(() => {
   $1
 });
 endsnippet
 
-snippet beforeAll "Unit Test beforeAll() setup" b
+snippet tstbeforeAll "Unit Test beforeAll() setup" b
 beforeAll(() => {
   $1
 });
 endsnippet
 
-snippet afterEach "Unit Test afterEach() teardown" b
+snippet tstafterEach "Unit Test afterEach() teardown" b
 afterEach(() => {
   $1
 });
 endsnippet
 
-snippet afterAll "Unit Test afterAll() teardown" b
+snippet tstafterAll "Unit Test afterAll() teardown" b
 afterAll(() => {
   $1
 });
 endsnippet
 
-snippet describe "Unit Test describe() block" b
+snippet tstgrp "Unit Test describe() block" b
 describe('$1', () => {           
   $2                             
 }); 
 endsnippet
 
-snippet it "Unit Test it() test case" b
+snippet tstcase "Unit Test it() test case" b
 it('$1', () => {
   $2
 });
 endsnippet
 
-snippet test "Unit Test test() test case" b
+snippet testtest "Unit Test test() test case" b
 it('$1', () => {
   $2
 });
+endsnippet
+
+snippet exptimes "Expect mock to have been called X times" b
+expect($1).toHaveBeenCalledTimes($2);$3
+endsnippet
+
+snippet expwith "Expect mock to have been with X" b
+expect($1).toHaveBeenCalledWith($2);$3
+endsnippet
+
+snippet expnotcalled "Expect mock to not have been called" b
+expect($1).not.toHaveBeenCalled();$3
+endsnippet
+
+snippet expeq "Expect X to be Y" b
+expect($1).toBe($2);$3
+endsnippet
+
+snippet expeq "Expect X to equal Y" b
+expect($1).toEqual($2);$3
 endsnippet
 
 snippet httpservice "HTTP Client Service (Vue and React)" b
