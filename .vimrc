@@ -20,7 +20,7 @@ filetype plugin indent on
 
 " Completion Setup
 let g:user_emmet_leader_key=','
-let g:coc_global_extensions = ['coc-solargraph', 'coc-tsserver', 'coc-json']
+let g:coc_global_extensions = ['coc-solargraph', 'coc-tsserver', 'coc-json', 'coc-vetur']
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
 endif
