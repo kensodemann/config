@@ -20,9 +20,11 @@ filetype plugin indent on
 
 " Completion Setup
 let g:user_emmet_leader_key=','
-let g:coc_global_extensions = ['coc-solargraph', 'coc-tsserver', 'coc-json', 'coc-vetur']
+let g:coc_global_extensions = ['coc-lists', 'coc-solargraph', 'coc-tsserver', 'coc-json', 'coc-vetur']
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
+  let g:prettier#autoformat = 1
+  let g:prettier#autoformat_require_pragma = 0
 endif
 
 nmap <silent> gd <Plug>(coc-definition)
@@ -85,8 +87,6 @@ endif
 
 " Basic Editor setup
 source ~/.vim/config/autoclose.vim
-
-let mapleader=","
 
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set wrap linebreak nolist
