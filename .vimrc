@@ -33,6 +33,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>i :CocCommand tsserver.organizeImports<cr>
 
 hi CocErrorFloat ctermbg=White ctermfg=Black
 
