@@ -14,6 +14,8 @@ Plug  'prettier/vim-prettier', { 'do': 'npm install' }  " Prettier
 Plug 'neoclide/coc.nvim', {'branch': 'release'}         " Completion
 Plug 'mattn/emmet-vim'                                  " HTML Completion
 
+Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+
 call plug#end()
 
 filetype plugin indent on
@@ -96,7 +98,13 @@ set ignorecase smartcase
 set laststatus=2
 
 syntax on
-colorscheme desert
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+colorscheme spaceduck
 
 if has("gui_running")
   set vb t_vb=
