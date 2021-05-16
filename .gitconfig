@@ -46,8 +46,8 @@
   ci = commit
   amend = commit --amend -C HEAD
   aa = commit -a --amend -C HEAD
-  rb = !git fetch origin master && git rebase origin/master
-  squash = !git fetch origin master && git rebase -i origin/master
+  rb = !git fetch origin main && git rebase origin/main
+  squash = !git fetch origin main && git rebase -i origin/main
   ours = "!f() { git co --ours $@ && git add $@; }; f"
   theirs = "!f() { git co --theirs $@ && git add $@; }; f"
   rmb = branch -d
@@ -66,3 +66,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[init]
+	defaultBranch = main
