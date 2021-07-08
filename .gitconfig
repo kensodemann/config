@@ -51,7 +51,7 @@
   ours = "!f() { git co --ours $@ && git add $@; }; f"
   theirs = "!f() { git co --theirs $@ && git add $@; }; f"
   rmb = branch -d
-  rmbr = push origin --delete
+  rmbr = push origin --delete --no-verify
   lsc = diff-tree --no-commit-id --name-only -r
   cdiff = diff-tree --patch -r
 
