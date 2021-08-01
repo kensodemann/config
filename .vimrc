@@ -9,17 +9,24 @@ Plug 'leafgarland/typescript-vim'                       " TypeScript syntax
 Plug 'posva/vim-vue'                                    " Vue syntax
 Plug 'maxmellon/vim-jsx-pretty'                         " JS and JSX syntax
 Plug 'jparise/vim-graphql'                              " GraphQL syntax
+Plug 'kamykn/spelunker.vim'                             " Spell Check
 
 Plug  'prettier/vim-prettier', { 'do': 'npm install' }  " Prettier
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}         " Completion
 Plug 'mattn/emmet-vim'                                  " HTML Completion
 
+" Various extra color themes
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+Plug 'tomasiser/vim-code-dark'
+Plug 'KeitaNakamura/neodark.vim'
 
 call plug#end()
 
 filetype plugin indent on
+
+" colorscheme spaceduck
+colorscheme codedark
 
 " Completion Setup
 let g:user_emmet_leader_key=','
@@ -98,14 +105,56 @@ set relativenumber numberwidth=4 ruler
 set ignorecase smartcase
 set laststatus=2
 
+set nospell
+" Option to disable word checking.
+" Disable URI checking. (default: 0)
+let g:spelunker_disable_uri_checking = 1
+
+" Disable email-like words checking. (default: 0)
+let g:spelunker_disable_email_checking = 1
+
+" Disable account name checking, e.g. @foobar, foobar@. (default: 0)
+" NOTE: Spell checking is also disabled for JAVA annotations.
+let g:spelunker_disable_account_name_checking = 1
+
+" Disable acronym checking. (default: 0)
+let g:spelunker_disable_acronym_checking = 1
+
+" Disable checking words in backtick/backquote. (default: 0)
+let g:spelunker_disable_backquoted_checking = 1
+
+" Disable default autogroup. (default: 0)
+let g:spelunker_disable_auto_group = 1
+
+" Create own custom autogroup to enable spelunker.vim for specific filetypes.
+augroup spelunker
+  autocmd!
+  " Setting for g:spelunker_check_type = 1:
+  autocmd BufWinEnter,BufWritePost *.vim,*.js,*.jsx,*.json,*.md,*.ts,*.tsx call spelunker#check()
+
+  " Setting for g:spelunker_check_type = 2:
+  autocmd CursorHold *.vim,*.js,*.jsx,*.json,*.md,*.ts,*.tsx call spelunker#check_displayed_words()
+augroup END
+
+" Override highlight group name of incorrectly spelled words. (default:
+" 'SpelunkerSpellBad')
+let g:spelunker_spell_bad_group = 'SpelunkerSpellBad'
+
+" Override highlight group name of complex or compound words. (default:
+" 'SpelunkerComplexOrCompoundWord')
+let g:spelunker_complex_or_compound_word_group = 'SpelunkerComplexOrCompoundWord'
+
+" Override highlight setting.
+autocmd ColorScheme *
+    \ highlight SpelunkerSpellBad cterm=underline ctermfg=247 gui=underline guifg=#9e9e9e |
+    \ highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=underline guifg=NONE
+
 syntax on
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-
-colorscheme spaceduck
 
 if has("gui_running")
   set vb t_vb=
