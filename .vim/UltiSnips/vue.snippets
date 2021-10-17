@@ -21,7 +21,7 @@ snippet page "A page in @ionioc/vue" b
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title></ion-title>
+        <ion-title>${0:PageName}</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -34,8 +34,37 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: '${0: PageName}',
+  name: '${0:PageName}',
   components: { IonContent, IonHeader, IonPage, IonTitle, IonToolbar },
+});
+</script>
+
+<style scoped></style>
+endsnippet
+
+snippet childpage "A child page in @ionioc/vue" b
+<template>
+  <ion-page>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>${0:PageName}</ion-title>
+				<ion-buttons slot="start">
+          <ion-back-button defaultHref="/" />
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content></ion-content>
+  </ion-page>
+</template>
+
+<script lang="ts">
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: '${0:PageName}',
+  components: { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar },
 });
 </script>
 

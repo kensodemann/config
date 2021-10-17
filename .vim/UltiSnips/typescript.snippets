@@ -34,9 +34,26 @@ it('$1', () => {
 });
 endsnippet
 
-snippet testtest "Unit Test test() test case" b
-it('$1', () => {
+snippet tsttest "Unit Test test() test case" b
+test('$1', () => {
   $2
+});
+endsnippet
+
+snippet tstcomponent "Create a full unit test shell for a Vue component" b
+import ${0:AppComponent} from '@/components/${0}.vue';
+import { mount, VueWrapper } from '@vue/test-utils';
+
+describe('${0}', () => {
+  let wrapper: VueWrapper<typeof ${0}>;
+
+	beforeEach(() => {
+	  wrapper = mount(${0});
+	});
+
+	it('renders', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
 });
 endsnippet
 
