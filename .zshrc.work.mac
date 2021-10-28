@@ -65,7 +65,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,12 +129,6 @@ export GH_TOKEN='fa3305252d35ba6e910669b0889c2e2755156db1'
 export CAR_SHOW_TEST_DB_URL="postgres://ken:ken@localhost/testcarshowballotbox"
 
 export IONIC_CMDOPTS_SERVE_BROWSER="google chrome"
-
-alias upd-node="nvm install node --latest-npm --reinstall-packages-from=node"
-alias upd-node-lts="nvm install --lts --latest-npm --reinstall-packages-from='lts/*'"
-
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
 
 export DEMO_MAIN_API_KEY="99a45906-8fc3-499f-ad18-715008226857"
 export DEMO_WEATHER_API_KEY="919fa8a5-8f4d-442d-9a0a-f109499b7f2f"
