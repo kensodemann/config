@@ -1,15 +1,18 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/kensodemann/.oh-my-zsh"
+export ZSH="/Users/ken/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 ZSH_THEME_RANDOM_CANDIDATES=( "avit" "bira" "bureau" "gentoo" "gnzh" "half-life" "michelebologna" "mortalscumbag" "muse" "pygmalion" "robbyrussell" "wezm" "xiong-chiamiov" )
 
@@ -30,7 +33,7 @@ ZSH_THEME_RANDOM_CANDIDATES=( "avit" "bira" "bureau" "gentoo" "gnzh" "half-life"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -42,6 +45,8 @@ ZSH_THEME_RANDOM_CANDIDATES=( "avit" "bira" "bureau" "gentoo" "gnzh" "half-life"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -61,8 +66,8 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
@@ -94,44 +99,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+export CAR_SHOW_TEST_DB_URL="postgres://ken:ken@localhost/testcarshowballotbox"
 
-
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
-
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
-
-WEBDRIVER_PATH=/usr/local/lib/node_modules/protractor/selenium
-
-#export PATH=${PATH}:/Applications/Android\ Studio.app/sdk/platform-tools:/Applications/Android\ Studio.app/sdk/tools:$GNODE
-#export JAVA_HOME=$(/usr/libexec/java_home)
 export ANDROID_HOME=~/Library/Android/sdk/
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/tools:$PATH
-#export PATH=${JAVA_HOME}/bin:$PATH
-export PATH=/usr/local/bin:$PATH:$WEBDRIVER_PATH
-export PATH=$PATH:/usr/local/opt/go@1.8/libexec/bin
-export PATH=$PATH:/usr/local/opt/ruby/bin
 
-
-## Required for developing on cs-demo-api
-export ALLOW_ORIGIN="*"
-export DATABASE_URL="postgres://csdemo:csdemo@localhost/csdemoapi"
-export JWT_PRIVATE_KEY="ItJustDoesntMatter" 
-
-
-export HOMEBREW_GITHUB_API_TOKEN='d4258c251a4ae775209bfbf58e36e7561a071e57'
-export IONIC_SNAPSHOT_KEY=5f731d560dfa487e8746be878cfe6279
-
-export GH_TOKEN='fa3305252d35ba6e910669b0889c2e2755156db1'
-
-export CAR_SHOW_TEST_DB_URL="postgres://ken:ken@localhost/testcarshowballotbox"
-
-export IONIC_CMDOPTS_SERVE_BROWSER="google chrome"
-
-export DEMO_MAIN_API_KEY="99a45906-8fc3-499f-ad18-715008226857"
-export DEMO_WEATHER_API_KEY="919fa8a5-8f4d-442d-9a0a-f109499b7f2f"
-export DEMO_NASA_API_KEY="e8fc4386-5586-4ac3-9e56-02bb6d783963"
-
-export ENT_NATIVE_KEY="key_4e9d5d55fa8b4656aa1c22593cc76e79"
+export JAVA_HOME=`/usr/libexec/java_home -v 11`
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
