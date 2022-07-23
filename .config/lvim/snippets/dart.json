@@ -9,7 +9,9 @@
       "",
       "  @override",
       "  Widget build(BuildContext context) {",
-      "    return Container($0);",
+      "    return const Center(",
+      "      child: Text('$0'),",
+      "    );",
       "  }",
       "}"
     ],
@@ -30,9 +32,41 @@
       "class _${1}State extends State<${1}> {",
       "  @override",
       "  Widget build(BuildContext context) {",
-      "    return Container($0);",
+      "    return const Center(",
+      "      child: Text('$0'),",
+      "    );",
       "  }",
       "}"
-    ]
+    ],
+    "description": "Create a Flutter Stateless Widget"
+  },
+  "Flutter Page Test": {
+    "prefix": "tstpage",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "import 'package:flutter_test/flutter_test.dart';",
+      "",
+      "Widget createWidget() => const MaterialApp(",
+      "      home: ${1}(),",
+      "    );",
+      "",
+      "void main() {",
+      "  testWidgets('renders', (tester) async {",
+      "    await tester.pumpWidget(createWidget());",
+      "    expect(find.text('$0'), findsOneWidget);",
+      "  });",
+      "}"
+    ],
+    "description": "Create a Flutter widget test for a page widget"
+  },
+  "Flutter testWidgets": {
+    "prefix": "testwidgets",
+    "body": [
+      "  testWidgets('$1', (tester) async {",
+      "    await tester.pumpWidget(createWidget());",
+      "    $0",
+      "  });"
+    ],
+    "description": "Create a Flutter widget test case"
   }
 }
