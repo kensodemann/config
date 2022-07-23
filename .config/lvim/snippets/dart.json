@@ -1,0 +1,38 @@
+{
+  "Flutter Stateless Widget": {
+    "prefix": "stless",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1} extends StatelessWidget {",
+      "  const ${1}({Key? key}) : super(key: key);",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Container($0);",
+      "  }",
+      "}"
+    ],
+    "description": "Create a Flutter Stateless Widget"
+  },
+  "Flutter Stateful Widget": {
+    "prefix": "stful",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1} extends StatefulWidget {",
+      "  const ${1}({Key? key}) : super(key: key);",
+      "",
+      "  @override",
+      "  State<${1}> createState() => _${1}State();",
+      "}",
+      "",
+      "class _${1}State extends State<${1}> {",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Container($0);",
+      "  }",
+      "}"
+    ]
+  }
+}

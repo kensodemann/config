@@ -59,7 +59,8 @@ formatters.setup {
 -- Additional Plugins
 lvim.plugins = {
   { "pineapplegiant/spaceduck" },
-  { "kamykn/spelunker.vim" }
+  { "kamykn/spelunker.vim" },
+  { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
 }
 
 -- Autocommands
