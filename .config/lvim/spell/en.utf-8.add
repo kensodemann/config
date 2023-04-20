@@ -2,6 +2,7 @@ appflow
 axios
 backend
 composable
+composables
 devtools
 eslint
 falsy
