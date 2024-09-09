@@ -1,6 +1,7 @@
 [user]
 	name = Ken Sodemann
 	email = ken@ionic.io
+	signingKey = 
 [core]
 	autocrlf = input
 	excludesfile = /Users/kensodemann/.gitignore_global
@@ -68,3 +69,13 @@
 	trustExitCode = true
 [init]
 	defaultBranch = main
+[gpg]
+	format = openpgp
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
+[gpg "ssh"]
+	program = ssh-keygen
+	allowedSignersFile = 

@@ -8,13 +8,14 @@ export ZSH="/Users/ken/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="random"
+#ZSH_THEME="random"
+ZSH_THEME="apple"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
-ZSH_THEME_RANDOM_CANDIDATES=( "avit" "bira" "bureau" "gentoo" "gnzh" "half-life" "michelebologna" "mortalscumbag" "muse" "pygmalion" "robbyrussell" "wezm" "xiong-chiamiov" )
+# ZSH_THEME_RANDOM_CANDIDATES=( "agnoster"  "avit" "gentoo" "robbyrussell" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -99,7 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi=lvim
+alias vi=nvim
 export CAR_SHOW_TEST_DB_URL="postgres://ken:ken@localhost/testcarshowballotbox"
 
 export ANDROID_HOME=~/Library/Android/sdk/
@@ -107,10 +108,10 @@ export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/tools:$PATH
 
 export JAVA_HOME=`/usr/libexec/java_home -v 17`
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
 
-export PATH="$PATH:/Users/ken/Tools/flutter/bin"
+#export PATH="$PATH:/Users/ken/Tools/flutter/bin"
 
 # tabtab source for packages
 # uninstall by removing these lines
@@ -118,7 +119,7 @@ export PATH="$PATH:/Users/ken/Tools/flutter/bin"
 
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
 # cargo
 export CARGO_HOME="/Users/ken/.cargo/bin"
@@ -129,8 +130,13 @@ export PATH="$CARGO_HOME:$PATH"
 export LOCAL_HOME="/Users/ken/.local/bin"
 export PATH="$LOCAL_HOME:$PATH"
 # cargo end
+#
+eval "$(pyenv init --path)"
 
 # pnpm
 export PNPM_HOME="/Users/ken/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
