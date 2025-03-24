@@ -9,7 +9,7 @@ export ZSH="/Users/ken/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="random"
-ZSH_THEME="apple"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -131,7 +131,7 @@ export LOCAL_HOME="/Users/ken/.local/bin"
 export PATH="$LOCAL_HOME:$PATH"
 # cargo end
 #
-eval "$(pyenv init --path)"
+# eval "$(pyenv init --path)"
 
 # pnpm
 export PNPM_HOME="/Users/ken/Library/pnpm"
@@ -140,3 +140,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+alias npm=/opt/homebrew/bin/npm
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
