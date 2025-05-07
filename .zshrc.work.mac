@@ -2,20 +2,20 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ken/.oh-my-zsh"
+export ZSH="/Users/kenneth.sodemann/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="random"
-ZSH_THEME="agnoster"
+ZSH_THEME="random"
+#ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "agnoster"  "avit" "gentoo" "robbyrussell" )
+ZSH_THEME_RANDOM_CANDIDATES=( "lukerandall"  "avit" "gentoo" "robbyrussell" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -111,7 +111,7 @@ export JAVA_HOME=`/usr/libexec/java_home -v 17`
 # export VOLTA_HOME="$HOME/.volta"
 # export PATH="$VOLTA_HOME/bin:$PATH"
 
-#export PATH="$PATH:/Users/ken/Tools/flutter/bin"
+#export PATH="$PATH:/Users/kenneth.sodemann/Tools/flutter/bin"
 
 # tabtab source for packages
 # uninstall by removing these lines
@@ -122,19 +122,19 @@ export JAVA_HOME=`/usr/libexec/java_home -v 17`
 # source <(ng completion script)
 
 # cargo
-export CARGO_HOME="/Users/ken/.cargo/bin"
+export CARGO_HOME="/Users/kenneth.sodemann/.cargo/bin"
 export PATH="$CARGO_HOME:$PATH"
 # cargo end
 
 # cargo
-export LOCAL_HOME="/Users/ken/.local/bin"
+export LOCAL_HOME="/Users/kenneth.sodemann/.local/bin"
 export PATH="$LOCAL_HOME:$PATH"
 # cargo end
 #
 # eval "$(pyenv init --path)"
 
 # pnpm
-export PNPM_HOME="/Users/ken/Library/pnpm"
+export PNPM_HOME="/Users/kenneth.sodemann/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
