@@ -138,6 +138,8 @@ esac
 
 
 # First one may be needed for future versions of node, at least for now.
-# Second one is forcing node 22 for now.
-export NODE_OPTIONS=--disable-warning=ExperimentalWarning
-export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+# export NODE_OPTIONS=--disable-warning=ExperimentalWarning
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# API Keys
+[[ -f ~/.config/keys.zsh ]] && . ~/.config/keys.zsh || true
