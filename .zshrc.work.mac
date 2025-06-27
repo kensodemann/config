@@ -140,4 +140,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 alias npm=/opt/homebrew/bin/npm
-export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+# export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+#
+# API Keys
+[[ -f ~/.config/keys.zsh ]] && . ~/.config/keys.zsh || true
