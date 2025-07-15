@@ -79,3 +79,5 @@
 [gpg "ssh"]
 	program = ssh-keygen
 	allowedSignersFile = 
+[fetch]
+        prune = true
