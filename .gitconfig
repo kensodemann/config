@@ -1,10 +1,10 @@
 [user]
 	name = Ken Sodemann
-	email = kenneth.sodemann@outsystems.com
+	email = ken.sodemann@gmail.com
 	signingKey = 
 [core]
 	autocrlf = input
-	excludesfile = /Users/kensodemann/.gitignore_global
+	excludesfile = /Users/ken/.gitignore_global
 [pager]
   branch = false
 [push]
