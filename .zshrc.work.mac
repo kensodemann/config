@@ -138,6 +138,9 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+#
+# Run "pnpm completion zsh > completion-for-pnpm.zsh" to generate this file.
+source ~/completion-for-pnpm.zsh
 # pnpm end
 alias npm=/opt/homebrew/bin/npm
 # export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
